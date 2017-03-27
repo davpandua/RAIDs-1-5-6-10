@@ -26,8 +26,17 @@
 4. Anem al terminal del S.O i comprovem que s'han afegit els discos: **lsblk**
 5. El nom dels discos seràn, per exemple, **/dev/vda** i **/dev/vdb**.
 
-* Creant **RAID 1** amb **mdadm**
+#### Creant **RAID 1** amb **mdadm**
 
-1. **mdadm --create /dev/md0 --level=1 --raid-device=2 /dev/vda /dev/vdb**
-2. Es crea un sistema RAID de disc md0 (*--create /dev/md0*) de tipus 1 (*--level=1*), escollim cuants discos a fer servir (*--raid-device=2*) i quins d'ells son (*/dev/vda /dev/vdb*).
-3. Comprobem que s'ha creat: **lsblk**. Veurem **md0** per sota dels discos **vda** y **vdb** amb el tipus --> **raid1**.
+* **mdadm --create /dev/md0 --level=1 --raid-device=2 /dev/vda /dev/vdb**
+* Es crea un sistema RAID de disc **md0** (*--create /dev/md0*) de tipus 1 (*--level=1*), escollim cuants discos a fer servir (*--raid-device=2*) i quins d'ells son (*/dev/vda /dev/vdb*).
+* Comprobem que s'ha creat: **lsblk**. Veurem **md0** per sota dels discos **vda** y **vdb** amb el tipus **raid1**.
+* Confirmem el RAID: **--yes**
+* Comprovem informació del RAID:
+   **cat /proc/mdstat**
+* Per poder utilitzar el RAID, hem de formatejar-lo:
+   **mkfs.ext4 /dev/mdo**
+* I l'hem de montar:
+  **mount /dev/mdo /mnt**
+* Mirem si està montat:
+  **df -h**
