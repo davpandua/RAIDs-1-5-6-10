@@ -1,6 +1,6 @@
 # RAIDs
 
-* Els RAIDs proporcionen fiabilitat (lectura/escritura) i velocitat de disc (en redundancia)
+* Els RAIDs proporcionen **fiabilitat** (lectura/escritura) i **velocitat** de disc (en redundancia)
 
 
 | Nivells | Mín.Disc | Pot fallar |Capacitat | Lectura | Escritura |
@@ -37,9 +37,9 @@
 * Comprovem informació del RAID:  
 **cat /proc/mdstat**
 * Per poder utilitzar el RAID, hem de formatejar-lo:  
-**mkfs.ext4 /dev/mdo**
+**mkfs.ext4 /dev/md0**
 * I l'hem de montar:  
-**mount /dev/mdo /mnt**
+**mount /dev/md0 /mnt**
 * Mirem si està montat:  
 **df -h**
   
@@ -50,4 +50,15 @@
 * Comprovem:  
 **ll -lh**  
 **lsblk**  
-**cat /proc/mdstat** (informació del RAID)
+**cat /proc/mdstat** (veure informació del RAID)  
+* Comprovem l'estat del RAID:  
+**mdadm --detail /dev/md0**  
+* Si un dels discos del RAID, en algun moment està defectuos, podem eliminar aquest disc defectuos:  
+**mdadm /dev/md0 --remove /dev/vda**  
+* Podem afegir algun disc que tinguem de reserva (*spare*):  
+**mdadm /dev/md0 --add /dev/vdc**  
+* Si veiem que un dels discos dona molts problemes (no s'esborra, dona erros, etc), el podem eliminar d'una manera dràstica:  
+**mdadm --zero-superblock /dev/vda**  
+#### Creació d'un RAID 5  
+* Fem el mateix procedimen que l'anterior pero amb 3 discos:  
+* **mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**
