@@ -20,10 +20,11 @@
 
 * Linux proporciona una eina per crear diferents tipus de raid: **mdadm**. Pero abans crearem els discos per al RAID.
 
-1. Arranquem una màquina Linux (si es posible Fedora) amb el Virt-Manager.
+1. Arranquem una màquina virutal Linux (si es posible Fedora) amb el Virt-Manager.
 2. Per crear el RAID 1 necessitem 2 discos: obrim el visor de detalls (la bombeta).
-3. Fem clic dret i afegim un disc (Add Hardware). Per fer les proves escollirem **VirtIO** al **Bus Type**.
-4. Anem al terminal del S.O i comprovem que s'han afegit els discos: **lsblk**
+3. Fem clic dret i afegim un disc (**Add Hardware**). Per fer les proves escollirem **VirtIO** al **Bus Type**.
+4. Anem al terminal del S.O i comprovem que s'han afegit els discos:  
+**lsblk**
 5. El nom dels discos seràn, per exemple, **/dev/vda** i **/dev/vdb**.
 
 #### Creant **RAID 1** amb **mdadm**
