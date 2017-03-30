@@ -44,7 +44,8 @@
 **df -h**
   
 #### Fen proves amb el RAID
-
+* Entrem a la partició montada del RAID  
+**cd /mnt**  
 * Creem un disc de tipus **/dev/zero** amb **dd**:  
 **dd if=/dev/zero of=test.img bs=4K count=1000**
 * Comprovem:  
