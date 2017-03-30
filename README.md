@@ -27,10 +27,10 @@
 **lsblk**
 5. El nom dels discos seràn, per exemple, **/dev/vda** i **/dev/vdb**.
 
-#### Creant **RAID 1** amb **mdadm**
+#### Creant RAID 1 amb mdadm
 
 * **mdadm --create /dev/md0 --level=1 --raid-device=2 /dev/vda /dev/vdb**
-* Es crea un sistema RAID de disc **md0** (*--create /dev/md0*) de tipus 1 (*--level=1*), escollim cuants discos a fer servir (*--raid-device=2*) i quins d'ells son (*/dev/vda /dev/vdb*).
+* Es crea un sistema RAID de disc **md0** (__*--create /dev/md0*__) de tipus 1 (__*--level=1*__), escollim cuants discos a fer servir (__*--raid-device=2*__) i quins d'ells son (__*/dev/vda /dev/vdb*__).
 * Comprobem que s'ha creat:  
 **lsblk**. Veurem **md0** per sota dels discos **vda** y **vdb** amb el tipus **raid1**.
 * Confirmem el RAID:  
@@ -44,7 +44,7 @@
 * Mirem si està montat:  
 **df -h**
   
-#### Fen proves amb el RAID
+#### Fent proves amb el RAID
 * Entrem a la partició montada del RAID  
 **cd /mnt**  
 * Creem un disc de tipus **/dev/zero** amb **dd**:  
@@ -61,6 +61,8 @@
 **mdadm /dev/md0 --add /dev/vdc**  
 * Si veiem que un dels discos dona molts problemes (no s'esborra, dona erros, etc), el podem eliminar d'una manera dràstica:  
 **mdadm --zero-superblock /dev/vda**  
-#### Creació d'un RAID 5  
+#### Creació RAID 5  
 * Fem el mateix procedimen que l'anterior pero amb 3 discos:  
-* **mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**
+* **mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**  
+#### Creació RAID 10
+* **mdamdm --create /dev/md0 --level=10 --raid-devices=4 /dev/vda /dev/vdb /dev/vdc /dev/vdd **
