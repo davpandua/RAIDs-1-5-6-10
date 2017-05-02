@@ -65,4 +65,4 @@
 * Fem el mateix procedimen que l'anterior pero amb 3 discos:  
 * **mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**  
 #### Creació RAID 10
-* **mdamdm --create /dev/md0 --level=10 --raid-devices=4 /dev/vda /dev/vdb /dev/vdc /dev/vdd **
+* **mdamdm --create /dev/md0 --level=10 --raid-devices=4 /dev/vda /dev/vdb /dev/vdc /dev/vdd**
