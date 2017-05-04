@@ -6,7 +6,7 @@
 | Nivells | Mín.Disc | Pot fallar |Capacitat | Lectura | Escritura |
 | :------- | :------: | :-----:   | :-----:  | :--:    |---:
 | RAID 0   | 2     	  | 0		  | 100%	 |Excelent |Excelent |
-| RAID 1   | 2     	  | 1         | 5%		 |Molt bona | Bona	|
+| RAID 1   | 2     	  | 1         | 50%		 |Molt bona | Bona	|
 | RAID 5   |  3       | 1         |			 |Molt bona | Bona
 |RAID 6	   | 4		  | 2		  |50%-88%	 |Bona		| Bona
 |RAID 10   | 4		  | 1/mirror  | 50% | Molt bona | Bona
