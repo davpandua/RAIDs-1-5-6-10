@@ -65,7 +65,8 @@
 * Desactivar un raid (RAID 1 amb dos discos: sda i sdb):   
 **mdadm --stop md0**
 * Tornar a activar el raid:   
-**mdadm --assemble /dev/md0 /dev/sda /dev/sdb**
+**mdadm --assemble /dev/md0 /dev/sda /dev/sdb**   
+-El paràmetre *--assemble* pot restaurar un raid creat anteriorment.
 #### Creació RAID 5  
 * Fem el mateix procedimen que l'anterior pero amb 3 discos:  
 * **mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**  
