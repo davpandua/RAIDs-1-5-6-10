@@ -61,6 +61,11 @@
 **mdadm /dev/md0 --add /dev/vdc**  
 * Si veiem que un dels discos dona molts problemes (no s'esborra, dona erros, etc), el podem eliminar d'una manera dràstica:  
 **mdadm --zero-superblock /dev/vda**  
+#### Otras configuraciones:
+* Desactivar una raid (RAID 1 con dos discos: sda y sdb):   
+**mdadm --stop md0**
+* Volver a activar el raid:   
+**mdadm --assemble /dev/md0 /dev/sda /dev/sdb**
 #### Creació RAID 5  
 * Fem el mateix procedimen que l'anterior pero amb 3 discos:  
 * **mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**  
