@@ -73,7 +73,7 @@
 #### Creació RAID 10
 **mdamdm --create /dev/md0 --level=10 --raid-devices=4 /dev/vda /dev/vdb /dev/vdc /dev/vdd**
 #### Simulació de falla a un disc
-* Simulem una falla i així poder cambiar el disc:   
+* Simulem una falla de disc:   
 **mdadm --fail /dev/md0 /dev/sda3**  
 * Comprovem l'estat del raid:   
 **mdadm --detail md0**   
