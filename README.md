@@ -69,6 +69,11 @@
 -El paràmetre *--assemble* pot restaurar un raid creat anteriorment.
 #### Creació RAID 5  
 * Fem el mateix procedimen que l'anterior pero amb 3 discos:  
-* **mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**  
+**mdadm --create /dev/md0 --level=5 --raid-device=3 /dev/vda /dev/vdb /dev/vdb**  
 #### Creació RAID 10
-* **mdamdm --create /dev/md0 --level=10 --raid-devices=4 /dev/vda /dev/vdb /dev/vdc /dev/vdd**
+**mdamdm --create /dev/md0 --level=10 --raid-devices=4 /dev/vda /dev/vdb /dev/vdc /dev/vdd**
+#### Simulació de falla a un disc
+* Simulem una falla i així poder cambiar el disc:   
+**mdadm --fail /dev/md0 /dev/sda3**  
+* Comprovem l'estat del raid:   
+**mdadm --detail md0**   
