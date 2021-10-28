@@ -75,5 +75,8 @@
 #### Simulació de falla a un disc
 * Simulem una falla de disc:   
 **mdadm --fail /dev/md0 /dev/sda3**  
-* Comprovem l'estat del raid:   
-**mdadm --detail md0**   
+* Extreure el disc fallid:   
+**mdadm --remove /dev/md0 /dev/sda3**   
+* Acoplar un nou disc, ex, /dev/sda4:   
+**mdadm --add /dev/md0 /dev/sda4**   
+
